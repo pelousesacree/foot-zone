@@ -1,5 +1,4 @@
 // Foot Zone — page d'un tournoi : matchs, classement/tableau, statistiques, équipes, réglages.
-import 'dart:ui' show FontFeature;
 
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';

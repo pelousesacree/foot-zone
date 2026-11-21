@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
   Future<void> _import(BuildContext context) async {
     final store = StoreScope.read(context);
     try {
-      final res = await FilePicker.platform.pickFiles(type: FileType.any, withData: true);
+      final res = await FilePicker.pickFiles(type: FileType.any, withData: true);
       final bytes = res?.files.single.bytes;
       if (bytes == null) return;
       final t = store.importJson(utf8.decode(bytes, allowMalformed: true));

@@ -1,7 +1,6 @@
 // Foot Zone — feuille de match en direct : chrono, buts, cartons, remplacements,
 // prolongations, tirs au but, corrections et partage.
 import 'dart:async';
-import 'dart:ui' show FontFeature;
 
 import 'package:flutter/material.dart';
 
