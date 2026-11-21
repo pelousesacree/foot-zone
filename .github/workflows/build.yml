@@ -33,6 +33,13 @@ jobs:
           flutter create --platforms=android --org com.footzone --project-name foot_zone .
           rm -f test/widget_test.dart
           sed -i 's/android:label="foot_zone"/android:label="Foot Zone"/' android/app/src/main/AndroidManifest.xml
+          # L'analyse « lint » d'Android plante dans un module externe (image_picker) : on la désactive pour la construction.
+          cat >> android/build.gradle.kts <<'KTS'
+
+          subprojects {
+              tasks.matching { it.name.startsWith("lintVital") }.configureEach { enabled = false }
+          }
+          KTS
 
       - name: Dépendances
         run: flutter pub get
