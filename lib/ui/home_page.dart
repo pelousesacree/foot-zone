@@ -1,5 +1,6 @@
 // Foot Zone — accueil : liste des tournois, création, sauvegardes.
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -72,8 +73,9 @@ class HomePage extends StatelessWidget {
   Future<void> _import(BuildContext context) async {
     final store = StoreScope.read(context);
     try {
-      final res = await FilePicker.pickFiles(type: FileType.any, withData: true);
-      final bytes = res?.files.single.bytes;
+      final file = await FilePicker.pickFile(type: FileType.any);
+      if (file == null) return;
+      final Uint8List? bytes = await file.readAsBytes();
       if (bytes == null) return;
       final t = store.importJson(utf8.decode(bytes, allowMalformed: true));
       if (!context.mounted) return;
