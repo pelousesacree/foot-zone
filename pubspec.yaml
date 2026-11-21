@@ -1,0 +1,24 @@
+name: foot_zone
+description: "Foot Zone : gestion de tournois de football, hors ligne."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.6.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  path_provider: ^2.1.4
+  share_plus: '>=11.0.0 <14.0.0'
+  image_picker: ^1.1.2
+  file_picker: '>=8.1.0 <12.0.0'
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
